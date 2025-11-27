@@ -5,7 +5,7 @@
 
     function registerModule(name, moduleObj) {
         if (window.geolocationSys.module[name]) {
-            console.warn("Module '" + name + "' already exist.");
+            console.warn("Module '" + name + "' already exist");
             return;
         }
         window.geolocationSys.module[name] = moduleObj;
