@@ -1,25 +1,64 @@
+/* Reset básico */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f8;
     margin: 0;
+    padding: 0;
+}
+
+/* Containers */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.container {
-    max-width: 600px;
-    margin: 40px auto;
+/* Header */
+.site-header {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.site-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Main Card */
+main.container {
     background: #ffffff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 20px;
 }
 
-h1 {
+/* Headings */
+h2 {
     text-align: center;
     color: #333333;
     margin-bottom: 25px;
 }
 
+/* Form Elements */
 form label {
     font-weight: bold;
     display: block;
@@ -53,6 +92,7 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Messages */
 #loading {
     display: none;
     text-align: center;
