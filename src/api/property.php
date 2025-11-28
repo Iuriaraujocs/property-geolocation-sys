@@ -16,6 +16,11 @@ if ($method === 'GET') {
         exit;
     }
 
+    if (isset($_GET['withNotes'])) {
+        $controller->showWithNotes();
+        exit;
+    }
+
     $controller->show();
     exit;
 }

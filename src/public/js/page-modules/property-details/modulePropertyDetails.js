@@ -21,11 +21,9 @@
                         return;
                     }
 
-                    // ---- ALTERADO AQUI ----
                     modulePropertyDetails.populateDetails(response.data);
+                    modulePropertyDetails.createMapLink(id);
 
-                    // // notas ainda não vêm do backend → mantém como estava
-                    // modulePropertyDetails.populateNotes(response.notes);
                 },
                 function(errMsg) {
                     dom.toggleLoading(loading, false);
@@ -86,6 +84,22 @@
             }
         },
 
+        createMapLink: function(propertyId) {
+            var container = document.getElementById("mapLinkContainer");
+            if (!container) {
+                return;
+            }
+
+            var html =
+                '<a href="/public/map.html?id=' +
+                propertyId +
+                '&withNotes=true" style="font-weight:bold;">' +
+                'Map View' +
+                '</a>';
+
+            container.innerHTML = html;
+        },
+
         addNote: function(form, loading, message, callback) {
 
             var api = window.geolocationSys.getModule("moduleApi");
@@ -119,5 +133,4 @@
     };
 
     window.geolocationSys.registerModule("modulePropertyDetails", modulePropertyDetails);
-
 })();

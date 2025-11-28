@@ -16,12 +16,6 @@ class PropertyController extends BaseController
         $this->service = new PropertyService();
     }
 
-    public function list()
-    {
-        $result = $this->service->list();
-        return $this->jsonResponse(['success' => true, 'properties' => $result]);
-    }
-
     public function show()
     {
         $id = $_GET['id'] ?? null;
@@ -30,6 +24,19 @@ class PropertyController extends BaseController
         }
 
         $result = $this->service->get($id);
+        if (!$result) return $this->jsonError('Not found', 404);
+
+        return $this->jsonSuccess($result, "success findById process");
+    }
+
+    public function showWithNotes()
+    {
+        $id = $_GET['id'] ?? null;
+        if (!$id) {
+            return $this->jsonError('Missing id', 400);
+        }
+
+        $result = $this->service->getWithNotes($id);
         if (!$result) return $this->jsonError('Not found', 404);
 
         return $this->jsonSuccess($result, "success findById process");
@@ -51,32 +58,5 @@ class PropertyController extends BaseController
         if (isset($result['error'])) return $this->jsonError($result['error'], 422);
 
         return $this->jsonSuccess($result, 'Property Saved Successfully');
-    }
-
-    public function update()
-    {
-        $id = $_GET['id'] ?? null;
-        if (!$id) return $this->jsonError('Missing id', 400);
-
-        $data = json_decode(file_get_contents('php://input'), true);
-        if (!is_array($data)) return $this->jsonError('Invalid JSON', 400);
-
-        $result = $this->service->update($id, $data);
-
-        if (isset($result['error'])) return $this->jsonError($result['error'], 422);
-
-        return $this->jsonResponse($result);
-    }
-
-    public function delete()
-    {
-        $id = $_GET['id'] ?? null;
-        if (!$id) return $this->jsonError('Missing id', 400);
-
-        $result = $this->service->delete($id);
-
-        if (isset($result['error'])) return $this->jsonError($result['error'], 422);
-
-        return $this->jsonResponse($result);
     }
 }
