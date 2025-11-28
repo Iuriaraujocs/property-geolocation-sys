@@ -36,7 +36,9 @@ The architecture is clean, lightweight, and maintainable even under old-browser 
 ### 1) Start the environment
 Run Docker Compose:
 
-docker-compose up -d
+```bash
+  docker-compose up -d
+```
 
 Or configure Apache to point its DocumentRoot to the `src` directory.
 
@@ -45,7 +47,9 @@ Run the SQL schema file.
 
 From outside the container (recommended):
 
-docker exec -i mysql8_db mysql -u root -proot myapp < src/sql/schema.sql
+```bash
+  docker exec -i mysql8_db mysql -u root -proot myapp < src/sql/schema.sql
+```
 
 ### 3) Access the application
 http://localhost  
