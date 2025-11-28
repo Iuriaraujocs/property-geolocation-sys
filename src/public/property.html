@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Create / Edit Property</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/public/">
     <link rel="stylesheet" href="css/property-form.css">
 </head>
 <body>
@@ -22,7 +23,7 @@
     <div id="loading">Loading...</div>
     <div id="message"></div>
 
-    <form id="propertyForm" action="/index.php?controller=property&action=store" method="POST">
+    <form id="propertyForm" action="../api/property.php" method="POST">
         <label for="propertyName">Property Name:</label>
         <input type="text" id="propertyName" name="property" required>
 

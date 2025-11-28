@@ -17,6 +17,7 @@
                 url,
                 formData,
                 function(response) {
+
                     dom.toggleLoading(loading, false);
 
                     if (!response.success) {
@@ -24,7 +25,12 @@
                         return;
                     }
 
-                    window.location.href = response.redirect;
+                    dom.displaySuccessWithLink(
+                        message,
+                        response.message || "Saved successfully!",
+                        response.data,
+                        form
+                    );
                 },
                 function(errMsg) {
                     dom.toggleLoading(loading, false);

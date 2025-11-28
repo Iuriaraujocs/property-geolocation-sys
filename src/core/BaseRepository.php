@@ -1,5 +1,9 @@
 <?php
 
+namespace core;
+
+use core\Database;
+
 require_once __DIR__ . '/Database.php';
 require_once __DIR__ . '/../config/config.php'; // para carregar $config
 
@@ -20,10 +24,10 @@ abstract class BaseRepository
     {
         $config = require __DIR__ . '/../config/config.php';
 
-        $this->db = new Database($config);
+        $this->db = new Database($config['db']);
 
         if (empty($this->table)) {
-            throw new Exception("Repository missing table name: " . get_class($this));
+            throw new \Exception("Repository missing table name: " . get_class($this));
         }
     }
 
@@ -33,7 +37,7 @@ abstract class BaseRepository
         return $this->db->fetchAll($sql);
     }
 
-    public function getById($id)
+    public function findById($id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE id = ?";
         return $this->db->fetch($sql, [$id]);

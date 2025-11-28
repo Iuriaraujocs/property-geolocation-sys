@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base href="/public/">
+    <link rel="stylesheet" href="css/property-form.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <style>
+        #map {
+            width: 100%;
+            height: 500px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+    <div class="container">
+        <h1>Property Management System</h1>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+
+    <h2>Property Map</h2>
+
+    <div id="loading">Loading...</div>
+    <div id="message"></div>
+
+    <!-- MAPA -->
+    <div id="map"></div>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2025 Property Management System. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="js/core/bootstrap.js"></script>
+<script src="js/page-modules/maps/moduleMap.js"></script>
+<script src="js/page-modules/maps/app-map.js"></script>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</body>
+</html>

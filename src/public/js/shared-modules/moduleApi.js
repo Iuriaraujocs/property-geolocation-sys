@@ -10,13 +10,13 @@
                     var json = JSON.parse(xhr.responseText);
                     callbackSuccess(json);
                 } catch (e) {
-                    callbackError("Erro ao processar a resposta.");
+                    callbackError("Error processing the server response.");
                 }
             }
         };
 
         xhr.onerror = function() {
-            callbackError("Falha na requisição.");
+            callbackError("Request Error.");
         };
 
         xhr.send();
@@ -32,13 +32,13 @@
                     var json = JSON.parse(xhr.responseText);
                     callbackSuccess(json);
                 } catch (e) {
-                    callbackError("Erro ao processar a resposta do servidor.");
+                    callbackError("Error processing the server response.");
                 }
             }
         };
 
         xhr.onerror = function() {
-            callbackError("Falha na requisição.");
+            callbackError("Request Error.");
         };
 
         xhr.send(formData);

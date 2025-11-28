@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/public/">
+    <link rel="stylesheet" href="css/property-form.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+    <div class="container">
+        <h1>Property Management System</h1>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+
+    <h2>Property Details</h2>
+
+    <div id="loading">Loading...</div>
+    <div id="message"></div>
+
+    <!-- Tabela detalhes da Property -->
+    <table id="detailsTable" class="details-table">
+        <tbody>
+        <tr><th>Name</th><td id="p-name"></td></tr>
+        <tr><th>Latitude</th><td id="p-lat"></td></tr>
+        <tr><th>Longitude</th><td id="p-lng"></td></tr>
+        <tr><th>Extra Field</th><td id="p-extra"></td></tr>
+        </tbody>
+    </table>
+
+    <h3>Notes</h3>
+    <ul id="notesList"></ul>
+
+    <h3>Add Note</h3>
+    <form id="addNoteForm" action="../api/notes.php" method="POST">
+        <input type="hidden" name="property_id" id="notePropertyId">
+        <input type="text" name="note" id="noteText" required placeholder="Write a note...">
+        <button type="submit">Add Note</button>
+    </form>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2025 Property Management System. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="js/core/bootstrap.js"></script>
+<script src="js/page-modules/property-details/modulePropertyDetails.js"></script>
+<script src="js/page-modules/property-details/app-property-details.js"></script>
+
+</body>
+</html>
